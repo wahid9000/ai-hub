@@ -1,15 +1,11 @@
-const loadData = async aiHub =>  {
+const loadData = async (aiHub) =>  {
     const response = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     const data = await response.json();
-    // displayAllAiData = console.log(data.data.tools);
-    displayAiData(data.data.tools)
+    displayAiData(data.data.tools);
 }
 
-loadData();
-
-const displayAiData = aiDatas => {
+const displayAiData = (aiDatas) => {
     const aiDataContainer = document.getElementById('aiData-Container');
-    aiDatas = aiDatas.slice(0, 6);
     aiDatas.forEach(aiData => {
         const aiDataDiv = document.createElement('div');
         aiDataDiv.classList.add('col');
@@ -29,7 +25,7 @@ const displayAiData = aiDatas => {
                 <h4>${aiData.name}</h4>
                 <div class="d-flex justify-content-between">
                     <p><i class="fa-solid fa-calendar-days"></i>&nbsp;${aiData.published_in}</p>
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <button id="details-btn" class="btn btn-lightrounded-5" style="color:red" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button>
                 </div> 
             </div>
         </div>
@@ -38,3 +34,5 @@ const displayAiData = aiDatas => {
 
     })
 }
+
+loadData();
