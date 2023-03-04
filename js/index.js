@@ -37,7 +37,6 @@ const displayAiData = (aiDatas) => {
         aiDataContainer.appendChild(aiDataDiv);
 
     });
-    toggleSpinner(false);
 };
 
 const toggleSpinner = isLoading => {
@@ -51,28 +50,31 @@ const toggleSpinner = isLoading => {
 }
 
 const seeMoreBtn = document.getElementById('see-more-btn').addEventListener('click', function(){
-    showAllAiDataTogether();
     toggleSpinner(true);
-
+    showAllAiDataTogether();
 })
 
-const showAllAiDataTogether = () => {
 
-    fetch('https://openapi.programming-hero.com/api/ai/tools')
-    .then(response => response.json())
-    .then(data => displayAiData(data.data.tools))
-
-
+const showAllAiDataTogether = async() => {
+    const response = await fetch('https://openapi.programming-hero.com/api/ai/tools')
+    const data = await response.json();
+    toggleSpinner(false);
+    displayAiData(data.data.tools);
+    document.getElementById('see-more-btn').classList.add('d-none');
 }
 
-loadData();
 
-
-const loadDetails = id => {
-    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
-    fetch(url)
-    .then(response => response.json())
-    .then(data => showDetails(data.data)); 
+const loadDetails = async(id) => {
+    try{
+        const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+        const response = await fetch(url)
+        const data = await response.json()
+        showDetails(data.data); 
+    }
+    catch(error){
+        console.log(error);
+    }
+    
 }
 
 const showDetails = aiData => {
@@ -119,7 +121,7 @@ const showDetails = aiData => {
         </div>
     </div>
     <div class="col-md-6 ms-auto py-5 rounded-3 text-center">
-        <button type="button" class="btn btn-danger position-absolute top-10 end-0 rounded-3">${aiData.accuracy.score * 100 ? aiData.accuracy.score * 100 : ""}% accuracy</button>
+        <button type="button" id="accuracy-btn" class="btn btn-danger position-absolute top-10 end-0 rounded-3">${aiData.accuracy.score * 100 ? aiData.accuracy.score * 100 : "0"}% accuracy</button>
         <img src="${aiData.image_link[0]}" class="img-fluid rounded-3 mb-3" alt="">
         <h5>${aiData.input_output_examples[0].input}</h5>
         <p>${aiData.input_output_examples[0].output}</p>
@@ -129,4 +131,4 @@ const showDetails = aiData => {
 
 
 
-
+loadData();
