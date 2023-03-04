@@ -85,17 +85,17 @@ const showDetails = aiData => {
     <div class="col-md-5 border rounded-3 py-5 w-50">
         <h5 class="text-center">${aiData.description}</h5>
         <div class="d-flex gap-4 mt-3">
-            <div class="text-center list-unstyled">
-            <li>${aiData.pricing[0].price ? aiData.pricing[0].price : "Free of Cost"}</li>
+            <div class="text-center list-unstyled shadow rounded-3">
+            <li class="pt-2 px-1">${aiData.pricing[0].price ? aiData.pricing[0].price : "Free of Cost"}</li>
             <li>${aiData.pricing[0].plan ? aiData.pricing[0].plan : "No Plan"}</li>
             </div>
             
-            <div class="text-center list-unstyled">
-            <li>${aiData.pricing[1].price ? aiData.pricing[1].price : "Free of Cost"}</li>
+            <div class="text-center list-unstyled shadow rounded-3">
+            <li class="pt-2 px-2">${aiData.pricing[1].price ? aiData.pricing[1].price : "Free of Cost"}</li>
             <li>${aiData.pricing[1].plan ? aiData.pricing[1].plan : "No Plan"}</li>
             </div>
 
-            <div class="text-center list-unstyled">
+            <div class="text-center list-unstyled shadow rounded">
             <li class="px-3">${aiData.pricing[2].price ? aiData.pricing[2].price : "Free of Cost"}</li>
             <li>${aiData.pricing[2].plan ? aiData.pricing[2].plan : "No Plan"}</li>
             </div>
@@ -103,7 +103,7 @@ const showDetails = aiData => {
         </div>
         <div class="d-flex gap-2 mt-4">
             <div class="features">
-                <h5 class="text-center">Features</h5>
+                <h5>Features</h5>
                 <ul>
                     <li>${aiData.features[1].feature_name}</li>
                     <li>${aiData.features[2].feature_name}</li>
@@ -128,7 +128,5 @@ const showDetails = aiData => {
     </div>
     `
 }
-
-
 
 loadData();
