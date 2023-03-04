@@ -84,18 +84,18 @@ const showDetails = aiData => {
         <h5 class="text-center">${aiData.description}</h5>
         <div class="d-flex gap-4 mt-3">
             <div class="text-center list-unstyled">
-            <li>${aiData.pricing[0].price}</li>
-            <li>${aiData.pricing[0].plan}</li>
+            <li>${aiData.pricing[0].price ? aiData.pricing[0].price : "Free of Cost"}</li>
+            <li>${aiData.pricing[0].plan ? aiData.pricing[0].plan : "No Plan"}</li>
             </div>
             
             <div class="text-center list-unstyled">
-            <li>${aiData.pricing[1].price}</li>
-            <li>${aiData.pricing[1].plan}</li>
+            <li>${aiData.pricing[1].price ? aiData.pricing[1].price : "Free of Cost"}</li>
+            <li>${aiData.pricing[1].plan ? aiData.pricing[1].plan : "No Plan"}</li>
             </div>
 
             <div class="text-center list-unstyled">
-            <li class="px-3">${aiData.pricing[2].price}</li>
-            <li>${aiData.pricing[2].plan}</li>
+            <li class="px-3">${aiData.pricing[2].price ? aiData.pricing[2].price : "Free of Cost"}</li>
+            <li>${aiData.pricing[2].plan ? aiData.pricing[2].plan : "No Plan"}</li>
             </div>
          
         </div>
@@ -111,15 +111,15 @@ const showDetails = aiData => {
             <div class="integration">
                 <h5 class="text-center">Integrations</h5>
                 <ul>
-                    <li>${aiData.integrations[0]}</li>
-                    <li>${aiData.integrations[1]}</li>
-                    <li>${aiData.integrations[2]}</li>
+                    <li>${aiData.integrations[0] ? aiData.integrations[0] : "No Data Found"}</li>
+                    <li>${aiData.integrations[1] ? aiData.integrations[1] : "No Data Found"}</li>
+                    <li>${aiData.integrations[2] ? aiData.integrations[2] : "No Data Found"}</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="col-md-6 ms-auto py-5 rounded-3 text-center">
-        <button type="button" class="btn btn-danger position-absolute top-10 end-0 rounded-3">${aiData.accuracy.score * 100}% accuracy</button>
+        <button type="button" class="btn btn-danger position-absolute top-10 end-0 rounded-3">${aiData.accuracy.score * 100 ? aiData.accuracy.score * 100 : ""}% accuracy</button>
         <img src="${aiData.image_link[0]}" class="img-fluid rounded-3 mb-3" alt="">
         <h5>${aiData.input_output_examples[0].input}</h5>
         <p>${aiData.input_output_examples[0].output}</p>
