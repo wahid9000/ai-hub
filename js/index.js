@@ -80,28 +80,28 @@ const showDetails = aiData => {
     row = document.getElementById('detailsRow');
     row.innerHTML = `
     
-    <div class="col-md-6 border rounded-3 py-5 w-50">
-        <h5>${aiData.description}</h5>
-        <div class="d-flex gap-5 mt-3">
-            <div class="text-center">
-            <p>${aiData.pricing[0].price}</p>
-            <p>${aiData.pricing[0].plan}</p>
+    <div class="col-md-5 border rounded-3 py-5 w-50">
+        <h5 class="text-center">${aiData.description}</h5>
+        <div class="d-flex gap-4 mt-3">
+            <div class="text-center list-unstyled">
+            <li>${aiData.pricing[0].price}</li>
+            <li>${aiData.pricing[0].plan}</li>
             </div>
             
-            <div class="text-center">
-            <p>${aiData.pricing[1].price}</p>
-            <p>${aiData.pricing[1].plan}</p>
+            <div class="text-center list-unstyled">
+            <li>${aiData.pricing[1].price}</li>
+            <li>${aiData.pricing[1].plan}</li>
             </div>
 
-            <div class="text-center">
-            <p>${aiData.pricing[2].price}</p>
-            <p>${aiData.pricing[2].plan}</p>
+            <div class="text-center list-unstyled">
+            <li class="px-3">${aiData.pricing[2].price}</li>
+            <li>${aiData.pricing[2].plan}</li>
             </div>
          
         </div>
-        <div class="d-flex mt-3">
+        <div class="d-flex gap-2 mt-4">
             <div class="features">
-                <h5>Features</h5>
+                <h5 class="text-center">Features</h5>
                 <ul>
                     <li>${aiData.features[1].feature_name}</li>
                     <li>${aiData.features[2].feature_name}</li>
@@ -109,7 +109,7 @@ const showDetails = aiData => {
                 </ul>
             </div>
             <div class="integration">
-                <h5>Integrations</h5>
+                <h5 class="text-center">Integrations</h5>
                 <ul>
                     <li>${aiData.integrations[0]}</li>
                     <li>${aiData.integrations[1]}</li>
@@ -118,8 +118,8 @@ const showDetails = aiData => {
             </div>
         </div>
     </div>
-    <div class="col-md-6 py-5 rounded-3 text-center  w-10">
-        <button type="button" class="btn btn-danger position-absolute top-10 end-0 rounded-3">${aiData.accuracy.score} accuracy</button>
+    <div class="col-md-6 ms-auto py-5 rounded-3 text-center">
+        <button type="button" class="btn btn-danger position-absolute top-10 end-0 rounded-3">${aiData.accuracy.score * 100}% accuracy</button>
         <img src="${aiData.image_link[0]}" class="img-fluid rounded-3 mb-3" alt="">
         <h5>${aiData.input_output_examples[0].input}</h5>
         <p>${aiData.input_output_examples[0].output}</p>
