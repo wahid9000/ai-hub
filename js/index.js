@@ -2,6 +2,7 @@ const loadData = async () =>  {
 
     const response = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     const data = await response.json();
+ 
     displayAiData(data.data.tools.slice(0, 6));
 
 }
@@ -63,6 +64,9 @@ const showAllAiDataTogether = async() => {
     document.getElementById('see-more-btn').classList.add('d-none');
 }
 
+loadData();
+
+//code for modal description
 
 const loadDetails = async(id) => {
     try{
@@ -129,4 +133,3 @@ const showDetails = aiData => {
     `
 }
 
-loadData();
