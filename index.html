@@ -23,21 +23,31 @@
             <button id="see-more-btn" class="btn btn-danger rounded-3">See More</button>
         </div>
 
+
+        <!--Spinner -->
+        <section id="spinner" class="d-none">
+            <div class="d-flex justify-content-center align-items-center" style="height: 300px">
+                <div class="spinner-border text-success" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="aiDataDetailsModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content p-3" style="width:800px; height: auto;">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn btn-danger position-absolute top-0 start-100 translate-middle badge rounded-5 " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-x"></i></button>
                     </div>
                     <div class="modal-body">
-                    ...
+                    <div class="container">
+                        <div id="detailsRow" class="row">
+                            
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
