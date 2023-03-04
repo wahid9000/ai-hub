@@ -86,7 +86,7 @@ const showDetails = aiData => {
     row = document.getElementById('detailsRow');
     row.innerHTML = `
     
-    <div class="col-md-5 border rounded-3 py-5 w-50">
+    <div class="col-md-5 border rounded-3 py-5 w-50 left-div">
         <h5 class="text-center">${aiData.description}</h5>
         <div class="d-flex gap-4 mt-3">
             <div class="text-center list-unstyled shadow rounded-3">
